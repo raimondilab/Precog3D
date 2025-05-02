@@ -59,7 +59,6 @@ def parse_blastp_output(blastp_output_path):
             if query_seq[i][1][j] == '-':
                 hit_pos += 1
             elif sbjct_seq[i][1][j] == '-':
-                correspondence_dict[query_pos] = '-'
                 query_pos += 1
             else:
                 correspondence_dict[query_pos] = hit_pos
@@ -286,8 +285,6 @@ def main(args):
     for i in tqdm(range(1, max_query_pos), desc="BW Mapping"):
         BWposition = BW_mapping(mapping_dict, uniac, i, BW_data)
         if BWposition != "-":
-            if BWposition[-2] == ".":
-                BWposition += '0'
             BW2pos[BWposition] = i
 
     # Calculate Specific Contact Probabilities
