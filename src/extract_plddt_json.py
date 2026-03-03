@@ -1,10 +1,7 @@
-import sys
 import pandas as pd
-from Bio.PDB import MMCIFParser
 from Bio.PDB.MMCIF2Dict import MMCIF2Dict
 import json
 import argparse
-import os
 
 def find_plddt(cif_file):
     """

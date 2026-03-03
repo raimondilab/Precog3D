@@ -1,7 +1,6 @@
 import pandas as pd
 import numpy as np
 import json
-import sqlite3
 import pickle
 from tqdm import tqdm
 import argparse
@@ -231,14 +230,7 @@ def main(args):
     pairs = pd.DataFrame(combinations, columns=['GPCR', 'Gprotein'])
 
     # Get G-protein Names from DB
-    names = {}
-    conn = sqlite3.connect(args.uniprot_db)
-    c = conn.cursor()
-    gprot_set = set(pairs['Gprotein'])
-    for p in gprot_set:
-        for line in c.execute("SELECT * FROM uniac2gn WHERE uniac = '"+p.strip()+"'"):
-            names[p.strip()] = line[2].upper()
-    conn.close()
+    names = json.load(open("data/gprotein_names.json", "r"))
 
     pairs["Gprotein_name"] = pairs["Gprotein"].map(lambda x: names[x])
 
@@ -357,8 +349,7 @@ if __name__ == "__main__":
     parser.add_argument("--gproteins-list", default="gproteins.txt", help="File listing G-protein Uniprot accessions.")
     parser.add_argument("--plddt-json", required=True, help="Path to the JSON file containing pLDDT scores for all pairs.")
     parser.add_argument("--blastp-out", required=True, help="Path to the BLASTP output file (format 0) for the GPCR sequence against reference.")
-    parser.add_argument("--bw-pickle", default="/home/mmatic/new_swap_designs/GPCRDB_pos_latest.pickle", help="Path to the BW mapping pickle file (GPCRdb positions).")
-    parser.add_argument("--uniprot-db", default="/projects/bioinformatics/DB/uniprot/Uniac2GN.db", help="Path to the SQLite database for UniProt AC to Gene Name mapping.")
+    parser.add_argument("--bw-pickle", default="data/GPCRDB_pos_latest.pickle", help="Path to the BW mapping pickle file (GPCRdb positions).")
     parser.add_argument("--contacts-tsv", default="contacts.tsv", help="Path to the TSV file defining specific contacts (BW, Gprot_pos).")
     parser.add_argument("--valid-gpcr-pos", default="valid_positions.txt", help="File listing valid GPCR BW positions to consider.")
     parser.add_argument("--consensus-gprot-pos", default="consensus_Gprotein_positions.txt", help="File listing consensus G-protein positions (CGN format) for pLDDT analysis.")

@@ -56,7 +56,7 @@ def main():
     parser.add_argument("--output_file",
                         help="Path to save the output TSV file with predictions.")
     parser.add_argument("--training-data",
-                        default="known_pairs.feather",
+                        default="data/known_pairs.feather",
                         help="Path to the training data Feather file")
     parser.add_argument("--device", "-d",
                         default="cuda:0",
