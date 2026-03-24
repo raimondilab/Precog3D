@@ -10,7 +10,7 @@ usage() {
     exit 1
 }
 
-while getopts ":h:d:i:o:a:g:" opt; do
+while getopts ":h:d:i:o:a:" opt; do
     case ${opt} in
         h )
             HOME_FOLDER=$OPTARG
@@ -48,7 +48,7 @@ python3 src/fasta_to_json_AF3.py \
 
 INPUT_NAME=${INPUT_FILE%%.fasta}
 
-qsub -Wblock=true -v HOME_FOLDER=$HOME_FOLDER,DATABASE_FOLDER=$DATABASE_FOLDER,INPUT_FOLDER=$INPUT_FOLDER,INPUT_FILE=$INPUT_NAME.json,OUTPUT_FOLDER=$OUTPUT_FOLDER utils/build_alignment.sh
+qsub -Wblock=true -v HOME_FOLDER=$HOME_FOLDER,DATABASE_FOLDER=$DATABASE_FOLDER,INPUT_FOLDER=$INPUT_FOLDER,INPUT_FILE=$INPUT_NAME.json,OUTPUT_FOLDER=$OUTPUT_FOLDER src/build_alignment.sh
 
 gprotein_list=("P29992" "Q03113" "Q14344" "O95837" "P30679" "P63096" "P04899" "P08754" "P38405" "P50148" "P63092" "P19086" "P09471")
 

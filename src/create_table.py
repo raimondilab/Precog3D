@@ -346,14 +346,14 @@ if __name__ == "__main__":
 
     # --- Input Files ---
     parser.add_argument("--gpcr-id", required=True, help="Identifier for the target GPCR.")
-    parser.add_argument("--gproteins-list", default="gproteins.txt", help="File listing G-protein Uniprot accessions.")
+    parser.add_argument("--gproteins-list", default="data/gproteins.txt", help="File listing G-protein Uniprot accessions.")
     parser.add_argument("--plddt-json", required=True, help="Path to the JSON file containing pLDDT scores for all pairs.")
     parser.add_argument("--blastp-out", required=True, help="Path to the BLASTP output file (format 0) for the GPCR sequence against reference.")
     parser.add_argument("--bw-pickle", default="data/GPCRDB_pos_latest.pickle", help="Path to the BW mapping pickle file (GPCRdb positions).")
-    parser.add_argument("--contacts-tsv", default="contacts.tsv", help="Path to the TSV file defining specific contacts (BW, Gprot_pos).")
-    parser.add_argument("--valid-gpcr-pos", default="valid_positions.txt", help="File listing valid GPCR BW positions to consider.")
-    parser.add_argument("--consensus-gprot-pos", default="consensus_Gprotein_positions.txt", help="File listing consensus G-protein positions (CGN format) for pLDDT analysis.")
-    parser.add_argument("--gprot-pos-map", default="Processed_Gprotein_Position.csv", help="CSV file mapping G-protein common name and CGN to structure position index.")
+    parser.add_argument("--contacts-tsv", default="data/contacts.tsv", help="Path to the TSV file defining specific contacts (BW, Gprot_pos).")
+    parser.add_argument("--valid-gpcr-pos", default="data/valid_positions.txt", help="File listing valid GPCR BW positions to consider.")
+    parser.add_argument("--consensus-gprot-pos", default="data/consensus_Gprotein_positions.txt", help="File listing consensus G-protein positions (CGN format) for pLDDT analysis.")
+    parser.add_argument("--gprot-pos-map", default="data/Processed_Gprotein_Position.csv", help="CSV file mapping G-protein common name and CGN to structure position index.")
 
     # --- Directories ---
     parser.add_argument("--results-dir", default=".", help="Base directory where individual pair results (subdirectories like gpcr_gprot/) are located. Default: current directory.")
