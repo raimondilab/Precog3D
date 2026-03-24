@@ -1,7 +1,7 @@
 #!/bin/bash
 
 usage() {
-    echo "Usage: $0 -h HOME_FOLDER -d DATABASE_FOLDER -i INPUT -o OUTPUT_FOLDER -a ALIGNMENT_FOLDER -g GPROTEIN_LIST" 
+    echo "Usage: $0 -h HOME_FOLDER -d DATABASE_FOLDER -i INPUT -o OUTPUT_FOLDER -a ALIGNMENT_FOLDER" 
     echo "HOME_FOLDER: Home folder for alphafold3 singularity container."
     echo "DATABASE_FOLDER: Folder containing the databases."
     echo "INPUT: Input file in FASTA format."
