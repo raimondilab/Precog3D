@@ -1,6 +1,8 @@
 # Precog3D
 
-Pipeline for **GPCR–G protein coupling prediction** based on AlphaFold3 modeling, structure post-processing, interface metrics extraction, and TabPFN regression.
+Pipeline for **GPCR–G protein coupling prediction** based on AlphaFold3 modeling, structure post-processing, interface metrics extraction, and TabPFN regression described in:
+
+Miglionico, P., Matic, M., Franchini, L., Hiroki, A., Nemati Fard L.A., Arora C., Gherghinescu, M., De Oliveira Rosa, N., Ryoji, K., Gutkind, J. S., Orlandi, C., Inoue, A., Raimondi F. Computed atlas of the human GPCR-G protein signaling complexes. BioRxiv, 2026, https://doi.org/10.64898/2026.03.07.710286 
 
 The repository combines:
 - AlphaFold3 input generation from FASTA
